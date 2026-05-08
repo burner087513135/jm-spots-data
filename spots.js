@@ -1,84 +1,104 @@
-// CREATE MAP
+console.log("spots.js loaded");
+
 const map = L.map('map').setView([35.95, 14.40], 13);
 
-// MAP TILES
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map);
 
-// VARIABLES
 let allSpots = [];
 let hiddenUnlocked = false;
 let markers = [];
 
-// LOAD JSON DATA
+
+/* LOAD DATA */
 async function loadSpots() {
 
   try {
 
-    const response = await fetch('./locations.json');
+    console.log("fetching json...");
 
-    const data = await response.json();
+    // VERY IMPORTANT:
+    // no ./ sometimes fixes github pages path issues
+    const response = await fetch('locations.json');
 
-    allSpots = data;
+    console.log("response:", response);
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    allSpots = await response.json();
+
+    console.log("json loaded:", allSpots);
 
     renderSpots();
 
   } catch (err) {
 
-    console.error("Failed to load locations.json", err);
+    console.error("JSON LOAD FAILED:", err);
 
   }
 }
 
-// RENDER MARKERS
+
+/* DRAW MARKERS */
 function renderSpots() {
 
-  // REMOVE OLD MARKERS
+  console.log("rendering spots");
+
   markers.forEach(marker => {
     map.removeLayer(marker);
   });
 
   markers = [];
 
-  // ADD NEW MARKERS
   allSpots.forEach(spot => {
 
-    // HIDE SECRET SPOTS
+    console.log("spot:", spot.name);
+
+    // HIDE SECRET ONES
     if (spot.hidden && !hiddenUnlocked) {
       return;
     }
 
-    const popup = `
-      <b>${spot.name}</b><br>
-      ${spot.description}<br><br>
-
-      <a href="${spot.maps_link}" target="_blank">
-        Open in Google Maps
-      </a>
-    `;
-
     const marker = L.marker([spot.lat, spot.lng])
       .addTo(map)
-      .bindPopup(popup);
+      .bindPopup(`
+        <b>${spot.name}</b><br>
+        ${spot.description}<br><br>
+
+        <a href="${spot.maps_link}" target="_blank">
+          Open in Maps
+        </a>
+      `);
 
     markers.push(marker);
 
   });
+
+  console.log("markers drawn:", markers.length);
 }
 
-// PAGE LOADED
-window.addEventListener("load", () => {
 
-  // BUTTON
+/* PAGE READY */
+window.onload = () => {
+
+  console.log("window loaded");
+
   const btn = document.getElementById("revealBtn");
 
-  // CLICK EVENT
   btn.onclick = () => {
+
+    console.log("button clicked");
 
     const password = prompt("Enter password:");
 
+    console.log("password:", password);
+
     if (password === "1234") {
+
+      console.log("unlocking");
 
       hiddenUnlocked = true;
 
@@ -93,7 +113,5 @@ window.addEventListener("load", () => {
     }
   };
 
-  // START
   loadSpots();
-
-});
+};
