@@ -62,7 +62,7 @@ async function loadSpots() {
     setInfo("⏳ Loading data...");
 
     const res = await fetch("locations.json");
-@@ -45,21 +84,17 @@
+
     setInfo("✅ Loaded " + data.length + " spots");
 
   } catch (err) {
@@ -80,14 +80,14 @@ function renderSpots() {
     if (spot.hidden && !hiddenUnlocked) return;
 
     const marker = L.marker([spot.lat, spot.lng])
-@@ -78,7 +113,6 @@
+
 
 /* HUD */
 function updateHUD(extra = "") {
   const c = map.getCenter();
 
   setInfo(`
-@@ -97,9 +131,8 @@
+
   `);
 }
 
@@ -96,7 +96,7 @@ setInterval(async () => {
   countdown--;
 
   if (countdown <= 0) {
-@@ -111,29 +144,23 @@
+
 
 }, 1000);
 
