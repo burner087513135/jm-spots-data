@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Niche Spots Map</title>
 
+  <!-- Leaflet CSS -->
   <link rel="stylesheet"
-        href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
     }
 
@@ -19,100 +23,53 @@
       width: 100vw;
     }
 
-    .dev-panel {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 320px;
-      background: rgba(20, 20, 20, 0.9);
-      color: #0f0;
-      font-family: monospace;
-      border: 1px solid #333;
-      border-radius: 8px;
-      z-index: 9999;
-      overflow: hidden;
-    }
-    
-    .dev-header {
-      padding: 6px 10px;
-      background: #111;
-      font-weight: bold;
-    }
-    
-    .dev-content {
-      padding: 10px;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    
-    /* minimized state */
-    .dev-panel.minimized .dev-content {
-      display: none;
-    }
-    
-    /* toggle button under panel */
-    .toggle-panel-btn {
-      position: absolute;
-      top: 340px; /* adjust if needed */
-      right: 10px;
-      width: 320px;
-    
-      padding: 8px;
-      background: #111;
-      color: #0f0;
-      border: 1px solid #0f0;
-      border-radius: 6px;
-    
-      cursor: pointer;
-      font-family: monospace;
-    }
-
+    /* DEV BUTTON */
     #revealBtn {
-      width: 100%;
-      padding: 10px;
-      font-weight: bold;
+      position: fixed;
 
-      border: none;
+      top: 20px;
+      right: 20px;
+
+      z-index: 999999;
+
+      padding: 12px 16px;
+
+      background: white;
+      border: 2px solid black;
       border-radius: 8px;
+
+      font-weight: bold;
       cursor: pointer;
 
-      background: black;
-      color: white;
-
-      margin-bottom: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    #info {
-      font-size: 13px;
-      line-height: 1.4;
-      word-break: break-word;
+    #revealBtn:hover {
+      background: #f0f0f0;
     }
-
-    .ok { color: green; font-weight: bold; }
-    .err { color: red; font-weight: bold; }
-    .warn { color: orange; font-weight: bold; }
   </style>
 </head>
 
 <body>
 
-  <div id="devPanel" class="dev-panel">
-    <div class="dev-header">
-      <span>Dev Panel</span>
-    </div>
-  
-    <div id="info" class="dev-content"></div>
-  </div>
-  
-  <!-- BUTTON UNDER PANEL -->
-  <button id="togglePanelBtn" class="toggle-panel-btn">
-    Minimize Panel
-  </button>
+  <!-- BUTTON -->
+  <button id="revealBtn">DEV</button>
 
+  <!-- MAP -->
   <div id="map"></div>
 
+  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="spots.js"></script>
+
+  <!-- Your JS -->
+  <script src="spots.js?v=2"></script>
+  <script>
+    const version = Date.now();
+    const script = document.createElement("script");
+    script.src = `spots.js?v=${version}`;
+    document.body.appendChild(script);
+  </script>
 
 </body>
+
 </html>
