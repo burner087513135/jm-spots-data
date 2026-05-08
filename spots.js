@@ -1,19 +1,23 @@
-// Create map
+// CREATE MAP
 const map = L.map('map').setView([35.95, 14.40], 13);
 
-// Add OpenStreetMap tiles
+// MAP TILES
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
+  maxZoom: 19
 }).addTo(map);
 
+// VARIABLES
 let allSpots = [];
 let hiddenUnlocked = false;
 let markers = [];
 
-// Load locations
+// LOAD JSON DATA
 async function loadSpots() {
+
   try {
+
     const response = await fetch('./locations.json');
+
     const data = await response.json();
 
     allSpots = data;
@@ -21,29 +25,34 @@ async function loadSpots() {
     renderSpots();
 
   } catch (err) {
-    console.error('Failed to load locations.json', err);
+
+    console.error("Failed to load locations.json", err);
+
   }
 }
 
-// Render markers
+// RENDER MARKERS
 function renderSpots() {
 
-  // Remove old markers
+  // REMOVE OLD MARKERS
   markers.forEach(marker => {
     map.removeLayer(marker);
   });
 
   markers = [];
 
-  // Add markers
+  // ADD NEW MARKERS
   allSpots.forEach(spot => {
 
-    // hide hidden spots unless unlocked
-    if (spot.hidden && !hiddenUnlocked) return;
+    // HIDE SECRET SPOTS
+    if (spot.hidden && !hiddenUnlocked) {
+      return;
+    }
 
     const popup = `
       <b>${spot.name}</b><br>
       ${spot.description}<br><br>
+
       <a href="${spot.maps_link}" target="_blank">
         Open in Google Maps
       </a>
@@ -54,37 +63,37 @@ function renderSpots() {
       .bindPopup(popup);
 
     markers.push(marker);
+
   });
 }
 
-// Wait for page to fully load
-window.addEventListener('load', () => {
+// PAGE LOADED
+window.addEventListener("load", () => {
 
-  const btn = document.getElementById('revealBtn');
+  // BUTTON
+  const btn = document.getElementById("revealBtn");
 
-  if (!btn) {
-    console.error('Reveal button not found');
-    return;
-  }
+  // CLICK EVENT
+  btn.onclick = () => {
 
-  btn.addEventListener('click', () => {
+    const password = prompt("Enter password:");
 
-    const password = prompt('Enter password:');
-
-    if (password === '1234') {
+    if (password === "1234") {
 
       hiddenUnlocked = true;
 
       renderSpots();
 
-      alert('Hidden locations unlocked');
+      alert("Hidden locations unlocked");
 
     } else {
 
-      alert('Wrong password');
-    }
-  });
+      alert("Wrong password");
 
-  // Start app
+    }
+  };
+
+  // START
   loadSpots();
+
 });
