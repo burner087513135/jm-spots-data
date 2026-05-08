@@ -1,70 +1,56 @@
 console.log("spots.js loaded");
 
-/* MAP */
+/* =======================
+   MAP
+======================= */
 const map = L.map("map").setView([35.95, 14.40], 13);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19
 }).addTo(map);
 
-/* STATE */
+/* =======================
+   STATE
+======================= */
 let allSpots = [];
 let markers = [];
 let hiddenUnlocked = false;
-
 let countdown = 5;
 
-/* UI ELEMENTS */
+/* =======================
+   UI ELEMENTS
+======================= */
 const panel = document.getElementById("devPanel");
 const info = document.getElementById("info");
-const btn = document.getElementById("revealBtn");
-const toggle = document.getElementById("togglePanel");
+const toggleBtn = document.getElementById("togglePanelBtn");
 
-/* STATUS */
+/* =======================
+   STATUS DISPLAY
+======================= */
 function setInfo(html) {
   info.innerHTML = html;
 }
 
-/* MINIMIZE / EXPAND */
+/* =======================
+   MINIMIZE / MAXIMIZE
+======================= */
 let minimized = false;
 
-toggle.onclick = () => {
+toggleBtn.onclick = () => {
   minimized = !minimized;
 
   if (minimized) {
     panel.classList.add("minimized");
-    toggle.innerText = "+";
+    toggleBtn.innerText = "Maximize Panel";
   } else {
     panel.classList.remove("minimized");
-    toggle.innerText = "_";
+    toggleBtn.innerText = "Minimize Panel";
   }
 };
 
-/* DRAGGING */
-const header = document.querySelector(".dev-header");
-
-let isDragging = false;
-let offsetX, offsetY;
-
-header.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  offsetX = e.clientX - panel.offsetLeft;
-  offsetY = e.clientY - panel.offsetTop;
-});
-
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-
-  panel.style.left = (e.clientX - offsetX) + "px";
-  panel.style.top = (e.clientY - offsetY) + "px";
-  panel.style.right = "auto";
-});
-
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-});
-
-/* FETCH DATA */
+/* =======================
+   LOAD SPOTS
+======================= */
 async function loadSpots() {
   try {
     setInfo("⏳ Loading data...");
@@ -85,11 +71,13 @@ async function loadSpots() {
 
   } catch (err) {
     console.error(err);
-    setInfo(`<span class="err">❌ Load failed: ${err.message}</span>`);
+    setInfo(`<span style="color:red;">❌ Load failed: ${err.message}</span>`);
   }
 }
 
-/* RENDER MAP */
+/* =======================
+   RENDER MARKERS
+======================= */
 function renderSpots() {
   markers.forEach(m => map.removeLayer(m));
   markers = [];
@@ -111,7 +99,9 @@ function renderSpots() {
   updateHUD("Rendered " + markers.length + " markers");
 }
 
-/* HUD */
+/* =======================
+   HUD INFO
+======================= */
 function updateHUD(extra = "") {
   const c = map.getCenter();
 
@@ -131,7 +121,9 @@ function updateHUD(extra = "") {
   `);
 }
 
-/* AUTO REFRESH LOOP */
+/* =======================
+   AUTO REFRESH LOOP
+======================= */
 setInterval(async () => {
   countdown--;
 
@@ -144,23 +136,31 @@ setInterval(async () => {
 
 }, 1000);
 
-/* MAP EVENTS */
+/* =======================
+   MAP EVENTS
+======================= */
 map.on("move", () => updateHUD("Moving map"));
 
-/* BUTTON */
-btn.onclick = () => {
+/* =======================
+   UNLOCK BUTTON
+======================= */
+const revealBtn = document.getElementById("revealBtn");
+
+revealBtn.onclick = () => {
   const pass = prompt("Enter password:");
 
   if (pass === "gumigoo") {
     hiddenUnlocked = true;
     renderSpots();
-    setInfo(`<span class="ok">Unlocked hidden locations</span>`);
+    setInfo(`<span style="color:lime;">Unlocked hidden locations</span>`);
   } else {
-    setInfo(`<span class="warn">Wrong password</span>`);
+    setInfo(`<span style="color:orange;">Wrong password</span>`);
   }
 };
 
-/* START */
+/* =======================
+   START
+======================= */
 window.onload = () => {
   loadSpots();
 };
