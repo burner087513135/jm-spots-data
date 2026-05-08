@@ -30,5 +30,29 @@
     "lng": 14.57032941924378,
     "maps_link": "https://maps.app.goo.gl/25ecHwTR4ASzwGwq8",
     "hidden": false
+  },
+  {
+    "name": "Top of the World",
+    "description": "Scenic spot in Għargħur. Stunning. Theres benches and those exercise things in parks. Good for trekking.",
+    "lat": 35.92913597237693,
+    "lng": 14.448732607844605,
+    "maps_link": "https://maps.app.goo.gl/F4Q5v6sx32ygk4eAA",
+    "hidden": false
+  },
+  {
+    "name": "Top of the World",
+    "description": "Scenic spot in Għargħur. Stunning. Theres benches and those exercise things in parks. Good for trekking.",
+    "lat": 35.92913597237693,
+    "lng": 14.448732607844605,
+    "maps_link": "https://maps.app.goo.gl/F4Q5v6sx32ygk4eAA",
+    "hidden": false
+  },
+  {
+    "name": "Żonqor",
+    "description": "Niche rocky beach. Beautfiul place to swmin and hang out. Wonderful.",
+    "lat": 35.86711606410678,
+    "lng": 14.573264736087191,
+    "maps_link": "https://maps.app.goo.gl/LGe8oFffD68M8nbD9",
+    "hidden": true
   }
 ]
