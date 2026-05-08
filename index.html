@@ -19,20 +19,52 @@
       width: 100vw;
     }
 
-    /* DEV PANEL */
-    #devPanel {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      width: 260px;
-      z-index: 999999;
-
-      background: rgba(255,255,255,0.95);
-      border: 2px solid #111;
-      border-radius: 12px;
+    .dev-panel {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 320px;
+      background: rgba(20, 20, 20, 0.9);
+      color: #0f0;
+      font-family: monospace;
+      border: 1px solid #333;
+      border-radius: 8px;
+      z-index: 9999;
+      overflow: hidden;
+    }
+    
+    .dev-header {
+      padding: 6px 10px;
+      background: #111;
+      font-weight: bold;
+    }
+    
+    .dev-content {
       padding: 10px;
-
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    /* minimized state */
+    .dev-panel.minimized .dev-content {
+      display: none;
+    }
+    
+    /* toggle button under panel */
+    .toggle-panel-btn {
+      position: absolute;
+      top: 340px; /* adjust if needed */
+      right: 10px;
+      width: 320px;
+    
+      padding: 8px;
+      background: #111;
+      color: #0f0;
+      border: 1px solid #0f0;
+      border-radius: 6px;
+    
+      cursor: pointer;
+      font-family: monospace;
     }
 
     #revealBtn {
@@ -68,10 +100,14 @@
     <div class="dev-header">
       <span>Dev Panel</span>
     </div>
+  
     <div id="info" class="dev-content"></div>
   </div>
-
-  <button id="togglePanel" class="reveal-btn">More Info</button>
+  
+  <!-- BUTTON UNDER PANEL -->
+  <button id="togglePanelBtn" class="toggle-panel-btn">
+    Minimize Panel
+  </button>
 
   <div id="map"></div>
 
