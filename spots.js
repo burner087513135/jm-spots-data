@@ -20,7 +20,6 @@ async function loadSpots() {
 
     // VERY IMPORTANT:
     // no ./ sometimes fixes github pages path issues
-    const response = await fetch('locations.json');
     const response = await fetch(`locations.json?v=${Date.now()}`);
 
     console.log("response:", response);
