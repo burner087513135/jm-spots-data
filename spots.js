@@ -96,7 +96,7 @@ window.onload = () => {
 
     console.log("password:", password);
 
-    if (password === "gumigoo") {
+    if (password === "67") {
 
       console.log("unlocking");
 
