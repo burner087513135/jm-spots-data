@@ -90,26 +90,26 @@ window.onload = () => {
 
   btn.onclick = () => {
 
-    console.log("button clicked");
+  console.log("button clicked");
 
-    const password = prompt("Enter password:");
+  const password = prompt("Enter password:");
 
-    console.log("password:", password);
+  console.log("password:", password);
 
-    if (password === "gumigoo") {
+  if (password === "gumigoo") {
 
-      console.log("unlocking");
+    console.log("unlocking");
 
-      hiddenUnlocked = true;
+    hiddenUnlocked = true;
 
-      renderSpots();
+    renderSpots();
 
-      alert("Hidden locations unlocked");
+    alert("Hidden locations unlocked");
 
     } else {
-
+  
       alert("Wrong password");
-
+  
     }
   };
 
