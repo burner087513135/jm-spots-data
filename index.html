@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Niche Spots Map</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
     }
 
@@ -23,35 +23,39 @@
       width: 100vw;
     }
 
-    /* DEV button */
+    /* DEV BUTTON */
     #revealBtn {
-      position: absolute;
-      top: 10px;
-      right: 10px; /* moved to top right */
-      z-index: 9999;
+      position: fixed;
 
-      padding: 10px 14px;
+      top: 20px;
+      right: 20px;
+
+      z-index: 999999;
+
+      padding: 12px 16px;
 
       background: white;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      border: 2px solid black;
+      border-radius: 8px;
 
-      cursor: pointer;
       font-weight: bold;
+      cursor: pointer;
 
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     #revealBtn:hover {
-      background: #f3f3f3;
+      background: #f0f0f0;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- BUTTON -->
   <button id="revealBtn">DEV</button>
 
+  <!-- MAP -->
   <div id="map"></div>
 
   <!-- Leaflet JS -->
@@ -61,4 +65,5 @@
   <script src="spots.js"></script>
 
 </body>
+
 </html>
