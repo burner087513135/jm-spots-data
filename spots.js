@@ -1,71 +1,90 @@
+// Create map
 const map = L.map('map').setView([35.95, 14.40], 13);
 
-// map tiles
+// Add OpenStreetMap tiles
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19
+  maxZoom: 19,
 }).addTo(map);
 
 let allSpots = [];
 let hiddenUnlocked = false;
+let markers = [];
 
-// load data
-function loadSpots() {
-  fetch("./locations.json")
-    .then(res => res.json())
-    .then(data => {
-      allSpots = data;
-      renderSpots();
-    })
-    .catch(err => {
-      console.log("failed to load locations.json", err);
-    });
+// Load locations
+async function loadSpots() {
+  try {
+    const response = await fetch('./locations.json');
+    const data = await response.json();
+
+    allSpots = data;
+
+    renderSpots();
+
+  } catch (err) {
+    console.error('Failed to load locations.json', err);
+  }
 }
 
-// draw markers
+// Render markers
 function renderSpots() {
-  // remove old markers only
-  map.eachLayer(layer => {
-    if (layer instanceof L.Marker) {
-      map.removeLayer(layer);
-    }
+
+  // Remove old markers
+  markers.forEach(marker => {
+    map.removeLayer(marker);
   });
 
+  markers = [];
+
+  // Add markers
   allSpots.forEach(spot => {
+
+    // hide hidden spots unless unlocked
     if (spot.hidden && !hiddenUnlocked) return;
 
     const popup = `
       <b>${spot.name}</b><br>
       ${spot.description}<br><br>
-      <a href="${spot.maps_link}" target="_blank">Open in Google Maps</a>
+      <a href="${spot.maps_link}" target="_blank">
+        Open in Google Maps
+      </a>
     `;
 
-    L.marker([spot.lat, spot.lng])
+    const marker = L.marker([spot.lat, spot.lng])
       .addTo(map)
       .bindPopup(popup);
+
+    markers.push(marker);
   });
 }
 
-// button setup (runs after page loads)
-window.onload = function () {
-  const btn = document.getElementById("revealBtn");
+// Wait for page to fully load
+window.addEventListener('load', () => {
+
+  const btn = document.getElementById('revealBtn');
 
   if (!btn) {
-    console.log("Reveal button not found");
+    console.error('Reveal button not found');
     return;
   }
 
-  btn.addEventListener("click", () => {
-    const password = prompt("Enter password:");
+  btn.addEventListener('click', () => {
 
-    if (password === "1234") {
+    const password = prompt('Enter password:');
+
+    if (password === '1234') {
+
       hiddenUnlocked = true;
+
       renderSpots();
-      alert("Hidden locations unlocked");
+
+      alert('Hidden locations unlocked');
+
     } else {
-      alert("Wrong password");
+
+      alert('Wrong password');
     }
   });
-};
 
-// start app
-loadSpots();
+  // Start app
+  loadSpots();
+});
