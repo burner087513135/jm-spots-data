@@ -11,21 +11,23 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 let allSpots = [];
 let markers = [];
 let hiddenUnlocked = false;
+
 let countdown = 5;
 
-/* UI ELEMENTS */
+/* UI */
 const info = document.getElementById("info");
 const btn = document.getElementById("revealBtn");
 
-/* SAFE UI UPDATE */
+/* STATUS */
 function setInfo(html) {
-  if (!info) return;
   info.innerHTML = html;
 }
 
-/* LOAD DATA */
+/* FETCH DATA (SAFE) */
 async function loadSpots() {
+
   try {
+
     setInfo("⏳ Loading data...");
 
     const res = await fetch("locations.json");
@@ -40,15 +42,17 @@ async function loadSpots() {
 
     renderSpots();
 
-    setInfo(`✅ Loaded ${data.length} spots`);
+    setInfo("✅ Loaded " + data.length + " spots");
 
   } catch (err) {
+
     console.error(err);
-    setInfo(`❌ Load failed: ${err.message}`);
+
+    setInfo(`<span class="err">❌ Load failed: ${err.message}</span>`);
   }
 }
 
-/* RENDER MARKERS */
+/* RENDER MAP */
 function renderSpots() {
 
   markers.forEach(m => map.removeLayer(m));
@@ -69,13 +73,11 @@ function renderSpots() {
     markers.push(marker);
   });
 
-  updateHUD("Rendered markers");
+  updateHUD("Rendered " + markers.length + " markers");
 }
 
 /* HUD */
 function updateHUD(extra = "") {
-
-  if (!map) return;
 
   const c = map.getCenter();
 
@@ -86,7 +88,7 @@ function updateHUD(extra = "") {
     <b>Total Spots:</b> ${allSpots.length}<br>
     <b>Hidden:</b> ${hiddenUnlocked}<br><br>
 
-    <b>Center:</b><br>
+    <b>Map Center:</b><br>
     ${c.lat.toFixed(5)}, ${c.lng.toFixed(5)}<br><br>
 
     <b>Zoom:</b> ${map.getZoom()}<br><br>
@@ -95,7 +97,7 @@ function updateHUD(extra = "") {
   `);
 }
 
-/* AUTO REFRESH */
+/* AUTO REFRESH LOOP (5s) */
 setInterval(async () => {
 
   countdown--;
@@ -109,7 +111,7 @@ setInterval(async () => {
 
 }, 1000);
 
-/* MAP EVENTS */
+/* MAP MOVEMENT TRACKING */
 map.on("move", () => updateHUD("Moving map"));
 
 /* BUTTON */
@@ -123,10 +125,11 @@ btn.onclick = () => {
 
     renderSpots();
 
-    setInfo("✅ Hidden locations unlocked");
+    setInfo(`<span class="ok">Unlocked hidden locations</span>`);
 
   } else {
-    setInfo("❌ Wrong password");
+
+    setInfo(`<span class="warn">Wrong password</span>`);
   }
 };
 
