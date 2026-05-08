@@ -1,41 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Niche Spots Map</title>
   <meta charset="utf-8" />
+  <title>Niche Spots Map</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
     }
+
     #map {
       height: 100vh;
       width: 100vw;
     }
+
+    /* DEV button */
     #revealBtn {
       position: absolute;
       top: 10px;
-      left: 10px;
-      z-index: 10000;
-      padding: 10px;
+      right: 10px; /* moved to top right */
+      z-index: 9999;
+
+      padding: 10px 14px;
+
       background: white;
       border: 1px solid #ccc;
       border-radius: 6px;
+
+      cursor: pointer;
+      font-weight: bold;
+
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    #revealBtn:hover {
+      background: #f3f3f3;
     }
   </style>
 </head>
+
 <body>
 
-<button id="revealBtn">DEV</button>
+  <button id="revealBtn">DEV</button>
 
-<div id="map"></div>
+  <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="spots.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Your JS -->
+  <script src="spots.js"></script>
 
 </body>
 </html>
