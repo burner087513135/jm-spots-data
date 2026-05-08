@@ -17,10 +17,18 @@
   },
   {
     "name": "Il-Kalanka",
-    "description": "Very stunning beach. Hidden gem with barely anyone. Clean water. Long walk",
+    "description": "Very stunning beach. Hidden gem with barely anyone. Clean water. Long walk.",
     "lat": 35.82396314721218,
     "lng": 14.560216738005595,
     "maps_link": "https://maps.app.goo.gl/fQYubvDWbfJkqkyc7",
+    "hidden": false
+  },
+  {
+    "name": "St. Thomas Bay",
+    "description": "Small sandy area plus flat limestone areas. Easy access to water. Lifeguards and roped swimming area.",
+    "lat": 35.855248767859294,
+    "lng": 14.565826919206344
+    "maps_link": "https://maps.app.goo.gl/25ecHwTR4ASzwGwq8",
     "hidden": false
   }
 ]
