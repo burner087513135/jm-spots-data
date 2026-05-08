@@ -82,16 +82,9 @@ function updateHUD(extra = "") {
   const c = map.getCenter();
 
   setInfo(`
-    <b>Status:</b> ${extra}<br><br>
-
     <b>Markers:</b> ${markers.length}<br>
     <b>Total Spots:</b> ${allSpots.length}<br>
-    <b>Hidden:</b> ${hiddenUnlocked}<br><br>
-
-    <b>Map Center:</b><br>
-    ${c.lat.toFixed(5)}, ${c.lng.toFixed(5)}<br><br>
-
-    <b>Zoom:</b> ${map.getZoom()}<br><br>
+    <b>Dev Mode:</b> ${hiddenUnlocked}<br><br>
 
     <b>Refresh in:</b> ${countdown}s
   `);
