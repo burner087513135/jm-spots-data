@@ -82,7 +82,7 @@ function updateHUD(extra = "") {
   const c = map.getCenter();
 
   setInfo(`
-    <b>Markers:</b> ${markers.length}<br>
+    <b>Current Spots:</b> ${markers.length}<br>
     <b>Total Spots:</b> ${allSpots.length}<br>
     <b>Dev Mode:</b> ${hiddenUnlocked}<br><br>
 
