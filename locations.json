@@ -1,18 +1,26 @@
 [
   {
     "name": "Għar Lapsi",
-    "description": "Normal spot everyone sees",
-    "lat": 35.955,
-    "lng": 14.401,
+    "description": "Small bay near Siġġiewi. Lies about 1 km south-west of the Blue Grotto.",
+    "lat": 35.82753951910442,
+    "lng": 14.42339950444649,
     "maps_link": "https://maps.app.goo.gl/nPVyMm1wQ7gMQLx66",
     "hidden": false
   },
   {
-    "name": "Secret Tunnel",
-    "description": "Only for friends",
-    "lat": 35.942,
-    "lng": 14.389,
-    "maps_link": "https://www.google.com/maps?q=35.942,14.389",
+    "name": "Ġnejna Bay Unnamed Secret Spot",
+    "description": "TBA",
+    "lat": 35.92227757063516,
+    "lng": 14.3361398486033,
+    "maps_link": "https://maps.app.goo.gl/DCXGJyurY7xsSghk9",
     "hidden": true
+  },
+  {
+    "name": "Il-Kalanka",
+    "description": "Very stunning beach. Hidden gem with barely anyone. Clean water. Long walk",
+    "lat": 35.82396314721218,
+    "lng": 14.560216738005595,
+    "maps_link": "https://maps.app.goo.gl/fQYubvDWbfJkqkyc7",
+    "hidden": false
   }
 ]
