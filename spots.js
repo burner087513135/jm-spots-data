@@ -4,7 +4,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map);
 
-fetch("locations.json")
+fetch("./locations.json")
   .then(res => res.json())
   .then(spots => {
     spots.forEach(spot => {
