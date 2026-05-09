@@ -46,5 +46,29 @@
     "lng": 14.573264736087191,
     "maps_link": "https://maps.app.goo.gl/LGe8oFffD68M8nbD9",
     "hidden": true
+  },
+  {
+    "name": "Chinese Garden",
+    "description": "Very nice garden/park to relax in. Good for killing time and taking a break.",
+    "lat": 35.86382358763556,
+    "lng": 14.502952082115536,
+    "maps_link": "https://maps.app.goo.gl/RENRryRDNShTrS5n8",
+    "hidden": false
+  },
+  {
+    "name": "Airport",
+    "description": "The Airport has many shops/restaurants. Good alternative for baystreet/shoreline",
+    "lat": 35.84934015502985,
+    "lng": 14.495432365442868,
+    "maps_link": "https://maps.app.goo.gl/N5hLhn5yVjdz5wsS9",
+    "hidden": false
+  },
+  {
+    "name": "Jerma Palace Hotel",
+    "description": "Most popular Urbex location in Malta. Huge abandoned hotel. Graffiti everywhere. Do not go alone or at night.",
+    "lat": 35.86127027221746,
+    "lng": 14.57369910956422,
+    "maps_link": "https://maps.app.goo.gl/vXD1tQzYTvhkqnQD8",
+    "hidden": false
   }
 ]
