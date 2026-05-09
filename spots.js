@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* LOAD DATA */
   async function loadSpots() {
     try {
-      setInfo("⏳ Loading locations...");
+      setInfo("Loading locations...");
 
       const res = await fetch("./locations.json");
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInfo(`
       <b>Visible:</b> ${markers.length}<br>
       <b>Total:</b> ${allSpots.length}<br>
-      <b>Hidden unlocked:</b> ${hiddenUnlocked}
+      <b>DEV mode:</b> ${hiddenUnlocked}
     `);
   }
 
