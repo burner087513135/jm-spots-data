@@ -56,6 +56,17 @@
       word-break: break-word;
     }
 
+    #wheelBtn {
+      position: absolute;
+      top: 60px;
+      left: 10px;
+      z-index: 10000;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
     .ok { color: green; font-weight: bold; }
     .err { color: red; font-weight: bold; }
     .warn { color: orange; font-weight: bold; }
@@ -68,6 +79,8 @@
     <button id="revealBtn">DEV PANEL</button>
     <div id="info">Initializing...</div>
   </div>
+  
+  <button id="wheelBtn">Spin Wheel</button>
 
   <div id="map"></div>
 
