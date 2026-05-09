@@ -84,8 +84,7 @@ function updateHUD(extra = "") {
   setInfo(`
     <b>Current Spots:</b> ${markers.length}<br>
     <b>Total Spots:</b> ${allSpots.length}<br>
-    <b>Dev Mode:</b> ${hiddenUnlocked}<br><br>
-  `);
+    <b>Dev Mode:</b> ${hiddenUnlocked}<br>`);
 }
 
 /* AUTO REFRESH LOOP (5s) */
