@@ -109,9 +109,28 @@ btn.onclick = () => {
 };
 
 /* START */
-window.onload = () => {
-  document.getElementById("wheelBtn").addEventListener("click", () => {
-    window.location.href = "wheel.html";
-  });
-  loadSpots();
+window.onload = function () {
+
+  const revealBtn = document.getElementById("revealBtn");
+  if (revealBtn) {
+    revealBtn.addEventListener("click", () => {
+      const password = prompt("Enter password:");
+
+      if (password === "1234") {
+        hiddenUnlocked = true;
+        renderSpots();
+        alert("Hidden locations unlocked");
+      } else {
+        alert("Wrong password");
+      }
+    });
+  }
+
+  const wheelBtn = document.getElementById("wheelBtn");
+  if (wheelBtn) {
+    wheelBtn.addEventListener("click", () => {
+      window.location.href = "wheel.html";
+    });
+  }
+
 };
