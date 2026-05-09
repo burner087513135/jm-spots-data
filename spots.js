@@ -110,5 +110,8 @@ btn.onclick = () => {
 
 /* START */
 window.onload = () => {
+  document.getElementById("wheelBtn").addEventListener("click", () => {
+    window.location.href = "wheel.html";
+  });
   loadSpots();
 };
