@@ -110,5 +110,101 @@
     "lng": 14.553517054768593,
     "maps_link": "https://maps.app.goo.gl/U7f8fM3DpDyhgaaj8",
     "hidden": false
+  },
+  {
+    "name": "Għar Ħanek",
+    "description": "Very blue water. Amazing plcae to swim. Stunning.",
+    "lat": 35.82336945063925,
+    "lng": 14.43821399686969,
+    "maps_link": "https://maps.app.goo.gl/BzasFHNXa7zC33rk6",
+    "hidden": true
+  },
+  {
+    "name": "Miżieb Woodland",
+    "description": "Best alternative to Buskett. Very natural. Peace and tranquility.",
+    "lat": 35.94685069769874,
+    "lng": 14.374939832380571,
+    "maps_link": "https://maps.app.goo.gl/WesMhmzrHXafLwd36",
+    "hidden": false
+  },
+  {
+    "name": "Verdala Palace",
+    "description": "Very amazing outside and in. Aesthetically delightful in furnishing and decor. Torture dungeon below.",
+    "lat": 35.861627510142974,
+    "lng": 14.400656801538057,
+    "maps_link": "https://maps.app.goo.gl/5zLUG2n5XjnxxJkZ6",
+    "hidden": false
+  },
+  {
+    "name": "Verdala Palace",
+    "description": "Very amazing outside and in. Aesthetically delightful in furnishing and decor. Torture dungeon below.",
+    "lat": 35.861627510142974,
+    "lng": 14.400656801538057,
+    "maps_link": "https://maps.app.goo.gl/5zLUG2n5XjnxxJkZ6",
+    "hidden": false
+  },
+  {
+    "name": "L-Aħrax + L-Armier",
+    "description": "(to be expanded upon later)",
+    "lat": 35.98387707055028,
+    "lng": 14.35695770785714,
+    "maps_link": "https://maps.app.goo.gl/JdGnEoaXwLQVit3HA",
+    "hidden": false
+  },
+  {
+    "name": "Chadwick Lakes",
+    "description": "Only natural stream of water. Good for hiking, picnics and relaxing.",
+    "lat": 35.89789454274835,
+    "lng": 14.396098904694703,
+    "maps_link": "https://maps.app.goo.gl/Hw23rKc7T182NWvv5",
+    "hidden": false
+  },
+  {
+    "name": "Floriana Garden",
+    "description": "Beautiful place for killing time. Forest-Like. Recomennded to go in the morning. Photoshoots",
+    "lat": 35.89067450672746,
+    "lng": 14.499715918189006,
+    "maps_link": "https://maps.app.goo.gl/3cPxmGaykQKQfqrQ6",
+    "hidden": true
+  },
+  {
+    "name": "The Red Tower",
+    "description": "Beautiful place for killing time. Forest-Like. Recomennded to go in the morning. Photoshoots",
+    "lat": 35.97472465250079,
+    "lng": 14.343029325976195,
+    "maps_link": "https://maps.app.goo.gl/wqn6qiBq1eCkbVSB7",
+    "hidden": false
+  },
+  {
+    "name": "Wied Ta' (Baqqiegha)",
+    "description": "One of the most unknown wied. Not alot of info about it",
+    "lat": 35.86798715747757,
+    "lng": 14.444653532786452,
+    "maps_link": "https://maps.app.goo.gl/6akXva5p2GG8RN4R9",
+    "hidden": true
+  },
+  {
+    "name": "Wied Tal-Isperanza",
+    "description": "Quiet and peaceful walk. Watery.",
+    "lat": 35.907331462189624,
+    "lng": 14.415634532329204,
+    "maps_link": "https://maps.app.goo.gl/VBb4xvgxhQ9Nh8tQ9",
+    "hidden": false
+  },
+  {
+    "name": "Congreve Memorial",
+    "description": "Cool monument on the path from one temple to the other. Gaze over the spectacular landscape. 1h hike.",
+    "lat": 35.82579442232466,
+    "lng": 14.43786139715022,
+    "maps_link": "https://maps.app.goo.gl/w34ZgCzvp74y46gq5",
+    "hidden": false
+  },
+  {
+    "name": "Ħal-Farrug Family Park",
+    "description": "Cool monument on the path from one temple to the other. Gaze over the spectacular landscape. 1h hike.",
+    "lat": 35.86499417989242,
+    "lng": 14.477154983252653,
+    "maps_link": "https://maps.app.goo.gl/xjreCVtspruppweLA",
+    "hidden": false
   }
 ]
