@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spin Location Wheel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    #wheelBox {
+      margin: 40px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 8px solid black;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    button {
+      padding: 12px 18px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      color: blue;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Spin for a Location</h1>
+
+  <div id="wheelBox">Ready</div>
+
+  <button id="spinBtn">Spin</button>
+  <button id="unlockBtn">Unlock Hidden</button>
+
+  <div id="result"></div>
+  <a href="index.html">⬅ Back to Map</a>
+
+  <script src="wheel.js"></script>
+</body>
+</html>
