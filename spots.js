@@ -1,5 +1,7 @@
 console.log("spots.js loaded");
 
+const PASSWORD = "gumigoo";
+
 /* MAP */
 const map = L.map("map").setView([35.95, 14.40], 13);
 
@@ -12,54 +14,46 @@ let allSpots = [];
 let markers = [];
 let hiddenUnlocked = false;
 
-let countdown = 5;
-
 /* UI */
 const info = document.getElementById("info");
-const btn = document.getElementById("revealBtn");
+const revealBtn = document.getElementById("revealBtn");
+const wheelBtn = document.getElementById("wheelBtn");
 
 /* STATUS */
 function setInfo(html) {
   info.innerHTML = html;
 }
 
-/* FETCH DATA (SAFE) */
+/* FETCH DATA */
 async function loadSpots() {
-
   try {
+    setInfo("⏳ Loading locations...");
 
-    setInfo("⏳ Loading data...");
-
-    const res = await fetch("locations.json");
+    const res = await fetch("./locations.json");
 
     if (!res.ok) {
       throw new Error("HTTP " + res.status);
     }
 
     const data = await res.json();
-
     allSpots = data;
 
     renderSpots();
-
-    setInfo("✅ Loaded " + data.length + " spots");
+    setInfo("✅ Loaded " + data.length + " locations");
 
   } catch (err) {
-
     console.error(err);
-
     setInfo(`<span class="err">❌ Load failed: ${err.message}</span>`);
   }
 }
 
 /* RENDER MAP */
 function renderSpots() {
-
+  // remove old markers
   markers.forEach(m => map.removeLayer(m));
   markers = [];
 
   allSpots.forEach(spot => {
-
     if (spot.hidden && !hiddenUnlocked) return;
 
     const marker = L.marker([spot.lat, spot.lng])
@@ -67,70 +61,44 @@ function renderSpots() {
       .bindPopup(`
         <b>${spot.name}</b><br>
         ${spot.description}<br><br>
-        <a href="${spot.maps_link}" target="_blank">Open</a>
+        <a href="${spot.maps_link}" target="_blank">Open in Google Maps</a>
       `);
 
     markers.push(marker);
   });
 
-  updateHUD("Rendered " + markers.length + " markers");
+  updateHUD();
 }
 
 /* HUD */
-function updateHUD(extra = "") {
-
-  const c = map.getCenter();
-
+function updateHUD() {
   setInfo(`
-    <b>Current Spots:</b> ${markers.length}<br>
-    <b>Total Spots:</b> ${allSpots.length}<br>
-    <b>Dev Mode:</b> ${hiddenUnlocked}<br>`);
+    <b>Visible Locations:</b> ${markers.length}<br>
+    <b>Total Locations:</b> ${allSpots.length}<br>
+    <b>Hidden Unlocked:</b> ${hiddenUnlocked}
+  `);
 }
-/* MAP MOVEMENT TRACKING */
-map.on("move", () => updateHUD("Moving map"));
 
-/* BUTTON */
-btn.onclick = () => {
+map.on("move", updateHUD);
 
+/* BUTTONS */
+revealBtn.addEventListener("click", () => {
   const pass = prompt("Enter password:");
 
-  if (pass === "gumigoo") {
-
+  if (pass === PASSWORD) {
     hiddenUnlocked = true;
-
     renderSpots();
-
-    setInfo(`<span class="ok">Unlocked hidden locations</span>`);
-
+    setInfo(`<span class="ok">✅ Hidden locations unlocked</span>`);
+    setTimeout(updateHUD, 1200);
   } else {
-
-    setInfo(`<span class="warn">Wrong password</span>`);
+    setInfo(`<span class="warn">❌ Wrong password</span>`);
+    setTimeout(updateHUD, 1200);
   }
-};
+});
+
+wheelBtn.addEventListener("click", () => {
+  window.location.href = "wheel.html";
+});
 
 /* START */
-window.onload = function () {
-
-  const revealBtn = document.getElementById("revealBtn");
-  if (revealBtn) {
-    revealBtn.addEventListener("click", () => {
-      const password = prompt("Enter password:");
-
-      if (password === "1234") {
-        hiddenUnlocked = true;
-        renderSpots();
-        alert("Hidden locations unlocked");
-      } else {
-        alert("Wrong password");
-      }
-    });
-  }
-
-  const wheelBtn = document.getElementById("wheelBtn");
-  if (wheelBtn) {
-    wheelBtn.addEventListener("click", () => {
-      window.location.href = "wheel.html";
-    });
-  }
-
-};
+loadSpots();
