@@ -70,5 +70,29 @@
     "lng": 14.57369910956422,
     "maps_link": "https://maps.app.goo.gl/vXD1tQzYTvhkqnQD8",
     "hidden": false
+  },
+  {
+    "name": "Għajn Tuffieħa",
+    "description": "Beach with dark sand. Popular for surfing. Set in a bay backed by hills.",
+    "lat": 35.92871908248434,
+    "lng": 14.3444862334765,
+    "maps_link": "https://maps.app.goo.gl/FCcV2VJnVGGyRLgy9",
+    "hidden": false
+  },
+  {
+    "name": "Blata tal-Melħ",
+    "description": "Hidden gem. Atmospheric and dramatic cliffs. Cannot swim. Long hike. Amazing sunset.",
+    "lat": 35.89558684614556,
+    "lng": 14.330051178308532,
+    "maps_link": "https://maps.app.goo.gl/W5LHjpwAn4aCHCRC8",
+    "hidden": true
+  },
+  {
+    "name": "Golden Bay",
+    "description": "Scenic beach cove with fine sand. Rocky cliffs and shallow water. Resort hotels & restaurants.",
+    "lat": 35.93389613062322,
+    "lng": 14.344372340514266,
+    "maps_link": "https://maps.app.goo.gl/M5ttawAmbHaa7mvJA",
+    "hidden": false
   }
 ]
