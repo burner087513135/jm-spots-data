@@ -86,21 +86,6 @@ function updateHUD(extra = "") {
     <b>Total Spots:</b> ${allSpots.length}<br>
     <b>Dev Mode:</b> ${hiddenUnlocked}<br>`);
 }
-
-/* AUTO REFRESH LOOP (5s) */
-setInterval(async () => {
-
-  countdown--;
-
-  if (countdown <= 0) {
-    countdown = 5;
-    await loadSpots();
-  }
-
-  updateHUD("Running");
-
-}, 1000);
-
 /* MAP MOVEMENT TRACKING */
 map.on("move", () => updateHUD("Moving map"));
 
