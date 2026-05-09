@@ -88,11 +88,27 @@
     "hidden": true
   },
   {
+    "name": "Għar Ħanżir",
+    "description": "Small niche empty cave in the heart of wied. Might actually find a pig nearby.",
+    "lat": 35.86258164350911,
+    "lng": 14.469089783144854,
+    "maps_link": "https://maps.app.goo.gl/W5LHjpwAn4aCHCRC8",
+    "hidden": true
+  },
+  {
     "name": "Golden Bay",
     "description": "Scenic beach cove with fine sand. Rocky cliffs and shallow water. Resort hotels & restaurants.",
     "lat": 35.93389613062322,
     "lng": 14.344372340514266,
     "maps_link": "https://maps.app.goo.gl/M5ttawAmbHaa7mvJA",
+    "hidden": false
+  },
+  {
+    "name": "Sant'Antnin Family Park",
+    "description": "Big park with animals, playground and more. For everyone. Nice place to walk.",
+    "lat": 35.86179123594235,
+    "lng": 14.553517054768593,
+    "maps_link": "https://maps.app.goo.gl/U7f8fM3DpDyhgaaj8",
     "hidden": false
   }
 ]
