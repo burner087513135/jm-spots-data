@@ -60,11 +60,12 @@
       position: absolute;
       top: 60px;
       left: 10px;
-      z-index: 10000;
+      z-index: 99999;
       padding: 10px;
       background: white;
       border: 1px solid #ccc;
       border-radius: 6px;
+      cursor: pointer;
     }
 
     .ok { color: green; font-weight: bold; }
@@ -78,9 +79,8 @@
   <div id="devPanel">
     <button id="revealBtn">DEV PANEL</button>
     <div id="info">Initializing...</div>
+    <button id="wheelBtn">Random</button>
   </div>
-  
-  <button id="wheelBtn">Spin Wheel</button>
 
   <div id="map"></div>
 
