@@ -230,5 +230,13 @@
     "lng": 14.332995609344932,
     "maps_link": "https://www.google.com/maps/search/35.918170,14.332961",
     "hidden": false
+  },
+  {
+    "name": "Ta' Kalanka Sea Cave",
+    "description": "Nice spot to swim and sit in peace. Very Good Place to spend time. Amazing views & Crystal Clear Water.",
+    "lat": 35.840467956165064,
+    "lng": 14.569196009013762,
+    "maps_link": "https://www.google.com/maps/search/35.840451,+14.569212",
+    "hidden": true
   }
 ]
