@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateHUD() {
-    setInfo(`
+    setInfo(`<br>
       <b>Visible:</b> ${markers.length}<br>
-      <b>Total:</b> ${allSpots.length}<br>
+      <b>Total:</b> ${allSpots.length}<br><br>
       <b>DEV mode:</b> ${hiddenUnlocked}
     `);
   }
