@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* UI */
   const info = document.getElementById("info");
   const revealBtn = document.getElementById("revealBtn");
-  const wheelBtn = document.getElementById("wheelBtn");
 
-  if (!info || !revealBtn || !wheelBtn) {
+  if (!info || !revealBtn) {
     console.error("UI elements missing");
     return;
   }
@@ -90,10 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       alert("Wrong password");
     }
-  });
-
-  wheelBtn.addEventListener("click", () => {
-    window.location.href = "wheel.html";
   });
 
   map.on("move", updateHUD);
