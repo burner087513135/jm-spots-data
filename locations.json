@@ -206,5 +206,29 @@
     "lng": 14.477154983252653,
     "maps_link": "https://maps.app.goo.gl/xjreCVtspruppweLA",
     "hidden": false
+  },
+  {
+    "name": "Ta' Marija Cave",
+    "description": "Stunning cave for hiking. 20+ minute hike from Gnejna Bay",
+    "lat": 35.918132408051754,
+    "lng": 14.332995609344932,
+    "maps_link": "https://www.google.com/maps/search/35.918170,14.332961",
+    "hidden": true
+  },
+  {
+    "name": "Ta' Qassisu Cliff",
+    "description": "Good for picnics, Nice hike and amazing view.",
+    "lat": 35.979414162994715,
+    "lng": 14.328386308139788,
+    "maps_link": "https://www.google.com/maps/search/35.978670,+14.329203",
+    "hidden": false
+  },
+  {
+    "name": "Għar Tuta (temporarily closed)",
+    "description": "Gorgeous stone. Cave exploration.",
+    "lat": 35.918132408051754,
+    "lng": 14.332995609344932,
+    "maps_link": "https://www.google.com/maps/search/35.918170,14.332961",
+    "hidden": false
   }
 ]
