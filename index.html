@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Side Quest Map</title>
+  <title>Side Quest Hub</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
@@ -14,43 +14,18 @@
       font-family: Arial, sans-serif;
     }
 
-    #map {
-      height: 100vh;
-      width: 100vw;
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      font-family: Arial, Helvetica, sans-serif;
     }
-
-    /* PANEL BOTTOM LEFT */
-    #panel {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      width: 260px;
-      z-index: 999999;
-
-      background: rgba(255,255,255,0.95);
-      border: 2px solid #111;
-      border-radius: 12px;
-      padding: 10px;
-
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-    }
-
-    #revealBtn, {
-      width: 100%;
-      padding: 10px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: black;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    #info {
-      font-size: 13px;
-      line-height: 1.4;
-      word-break: break-word;
+    
+    a {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
     }
 
     .ok { color: green; font-weight: bold; }
@@ -61,15 +36,12 @@
 
 <body>
 
-  <div id="panel">
-    <button id="revealBtn">DEV Panel</button>
-    <div id="info">Initializing...</div><br>
-  </div>
-
-  <div id="map"></div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="spots.js"></script>
+  <h1>Side Quest Hub</h1>
+  <a href="map.html">The Map</a>
+  <a href="wheel.html">Random</a>
 
 </body>
+<footer>
+  <p>by jake mizzi</p>
+</footer>
 </html>
